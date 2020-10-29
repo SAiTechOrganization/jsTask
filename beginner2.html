@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>beginner2</title>
+    <style>
+        .txt-right{
+            text-align: right;
+        }
+
+        .table-border{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        'use strict';
+        
+        // 九九表1
+        document.write('<p>【九九表1】</p>');
+        document.write('<table>');
+        for (let i = 1; i < 10; i++) {
+            document.write("<tr>");
+            for (let j = 1; j < 10; j++) {
+                document.write('<td class="txt-right">' + i * j + '</td>');
+            }
+            document.write("</tr>");
+        }
+        document.write('</table>');
+
+        // 九九表2 
+        // document.write('<hr>');
+        // document.write('<p>【九九表2】</p>');
+        // document.write('<table class="table-border">');
+        //     for (let i = 1; i < 10 ; i++) {
+        //         document.write('<tr>');
+        //         for (let j = 1; j < 10 ; j++) {
+        //             let k = i*j;
+        //             document.write('<td class="table-border">' + i + '*' + j + '=' + k + '</td>');
+        //         }
+        //         document.write('</tr>');
+        //     }
+        // document.write('</table>');
+    </script>
+</body>
+</html>

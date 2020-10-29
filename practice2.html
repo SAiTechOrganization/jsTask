@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>practice2</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        window.onload = function(){
+            // 現在時刻の取得
+            let nowTime = new Date();
+            let hour = nowTime.getHours();
+            let min = nowTime.getMinutes();
+            let sec = nowTime.getSeconds();
+            let nowTimeMessage = "現在の時刻：" + hour + "時" + min + "分" + sec + "秒";
+
+            // アラートで表示
+            alert(nowTimeMessage);
+        }
+    </script>
+</body>
+</html>

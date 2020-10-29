@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intermediate2</title>
+</head>
+<body>
+    <div>  
+        <button onclick="startOmikuji()">おみくじ</button>
+        <h1 id="omikujiResult"></h1>
+    </div>
+
+    <script>
+        'use-strict';
+        
+        function startOmikuji(){
+            document.getElementById("omikujiResult").innerHTML = "";
+            window.setTimeout(omikujiCreate,2000);
+        }
+
+        // おみくじ結果を生成・出力
+        function omikujiCreate() {
+            let omikujiNumber;
+            let result;
+
+            // 0～4の整数を生成 omikujiIntに代入
+            omikujiNumber = Math.floor( Math.random() * 4) ; 
+
+            // resultにおみくじ結果を代入
+            if (omikujiNumber === 0) {
+                result = "大吉";
+            }else if(omikujiNumber === 1){
+                result = "中吉";
+            }else if(omikujiNumber === 2){
+                result = "小吉";
+            }else{
+                result = "凶";
+            }
+
+            // 結果を出力
+            document.getElementById("omikujiResult").innerHTML = result; 
+        }
+    </script>
+</body>
+</html>

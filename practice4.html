@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>practice4</title>
+</head>
+<body>
+    <h1 id="greeting">Hello JS!</h1>
+    <div>
+        <button id="black-btn">黒</button>
+        <button id="white-btn">白</button>
+    </div>
+
+    <script>  
+        'use strict';  
+        // クリックイベントを呼び出し
+        window.onload = function() {
+            let black = document.getElementById('black-btn');
+            black.addEventListener('click', add_black);
+        
+            let white = document.getElementById('white-btn');
+            white.addEventListener('click', add_white);
+        }
+
+        // 背景・文字色を変える関数
+        function add_black() {
+            let bgBlack = document.getElementById("greeting");
+            bgBlack.style.color = 'white';
+            bgBlack.style.backgroundColor= 'black';
+        }
+        
+        function add_white() {
+            let bgWhite = document.getElementById("greeting");
+            bgWhite.style.color = 'black';
+            bgWhite.style.backgroundColor = 'white';
+        }
+    </script>
+</body>
+</html>

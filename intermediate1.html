@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intermediate1</title>
+</head>
+<body>
+    <input type="button" value="グー" onclick="rsp(0);">
+    <input type="button" value="チョキ" onclick="rsp(1);">
+    <input type="button" value="パー" onclick="rsp(2);">
+
+    <div>
+        <h2 id="computer"></h2>
+        <h2 id="result-rps"></h2>
+    </div>
+
+    <script>
+        'use-strict';
+
+        // じゃんけんスタート
+        // 0:グー,1:チョキ,2:パー
+        function rsp(playerSelect) {
+            // 変数宣言
+            let comSelect;
+            let comSelectHand;
+            let result;
+            let comMsg;
+            let resultMsg;
+            
+            // 関数呼び出し
+            comResult();
+            winOrLose();
+            window.setTimeout(rspResult,2000);
+
+            // コンピュータの結果を表示
+            function comResult() {
+                // コンピュータの手を生成
+                comSelect = getRandomInt(3);
+
+                // 乱数の取得
+                function getRandomInt(max) {
+                    return Math.floor(Math.random() * Math.floor(max));
+                }
+
+                // コンピュータの出した手
+                if (comSelect === 0) {
+                    comSelectHand = 'グー';
+                } else if (comSelect === 1) {
+                    comSelectHand = 'チョキ';
+                } else {
+                    comSelectHand = 'パー';
+                }
+
+                comMsg = '相手：' + comSelectHand;
+                document.getElementById('computer').innerHTML = comMsg;
+
+                // 結果の空文字
+                document.getElementById('result-rps').innerHTML = '';
+            }
+
+            function winOrLose(){
+                // 0: 負け,1: 勝ち,2: あいこ
+                if (playerSelect === comSelect) {
+                    result = 2;
+                } else {
+                    if (playerSelect === 0) {
+                        if (comSelect === 1) {
+                            result = 1;
+                        } else {
+                            result = 0;
+                        }
+                    } else if (playerSelect === 1) {
+                        if (comSelect === 0) {
+                            result = 0;
+                        } else {
+                            result = 1;
+                        }
+                    } else {
+                        if (comSelect === 0) {
+                            result = 1;
+                        } else {
+                            result = 0;
+                        }
+                    }
+                }
+            }
+
+            // 勝ち負けの結果を表示
+            function rspResult(){
+                // 勝ち負けあいこの結果
+                if (result === 0) {
+                    resultMsg = '負け';
+                } else if (result === 1) {
+                    resultMsg = '勝ち';
+                } else {
+                    resultMsg = 'あいこ';
+                }
+                document.getElementById('result-rps').innerHTML = '結果：' + resultMsg;
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>practice3</title>
+</head>
+<body>
+    <p>1,000円のビジネス書3冊と2,500円の技術書を2冊購入した際の合計金額</p>
+    <p id="price"></p>
+
+    <script>
+        'use strict';
+        let BusinessBook = 1000 * 3;
+        let TechnicalBook = 2500 * 2;
+        let withoutTax = totalBusinessBook + totalTechnicalBook;
+        let taxIncluded = withoutTax * 1.1;
+
+        let price = document.getElementById("price");
+        price.innerHTML = '合計：' + taxIncluded.toLocaleString() + '円(税込)';
+
+        // document.writeを使う場合
+        // document.write('<p>合計：'+ taxIncluded.toLocaleString() +'円(税込)</p>');
+    </script>
+</body>
+</html>
