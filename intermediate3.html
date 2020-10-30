@@ -4,13 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>intermediate3</title>
+    <style>
+        .calc-btn{
+            margin: 3px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .text-display{
+            width: 150px;
+        }
+
+        .clear-btn{
+            width: 150px;
+            height: 20px;
+            display: block;
+            margin: 3px auto;
+        }
+    </style>
 </head>
-<body>
-<!-- 【中級課題3】 簡易計算機 (Intermediate3.html)     --
-----  足し算・引き算・掛け算・割り算 の四則演算ができる。--
-----  (計算ができれば数値の入力はなんでも可)            -->
+<body>    
+    <form name="calcForm">
+        <table id="calcTable">
+            <tr>
+                <td colspan="4"><input class="text-display" type="text" name="calcText" value=""></td>
+            </tr>
+            <tr>
+                <td colspan="4"><input  class="clear-btn" type="button" value="c" onclick="calc('C')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="calc-btn" value="7" onclick="calc('7')"></td>
+                <td><input type="button" class="calc-btn" value="8" onclick="calc('8')"></td>
+                <td><input type="button" class="calc-btn" value="9" onclick="calc('9')"></td>
+                <td><input type="button" class="calc-btn" value="/" onclick="calc('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="calc-btn" value="4" onclick="calc('4')"></td>
+                <td><input type="button" class="calc-btn" value="5" onclick="calc('5')"></td>
+                <td><input type="button" class="calc-btn" value="6" onclick="calc('6')"></td>
+                <td><input type="button" class="calc-btn" value="*" onclick="calc('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="calc-btn" value="1" onclick="calc('1')"></td>
+                <td><input type="button" class="calc-btn" value="2" onclick="calc('2')"></td>
+                <td><input type="button" class="calc-btn" value="3" onclick="calc('3')"></td>
+                <td><input type="button" class="calc-btn" value="-" onclick="calc('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="calc-btn" value="0" onclick="calc('0')"></td>
+                <td><input type="button" class="calc-btn" value="．" onclick="calc('.')"></td>
+                <td><input type="button" class="calc-btn" value="=" onclick="calc('=')"></td>
+                <td><input type="button" class="calc-btn" value="+" onclick="calc('+')"></td>
+            </tr>
+        </table>
+    </form>
 
-
-
+<script>
+    function calc(cmd) {
+        if (cmd === "=") {
+            document.calcForm.calcText.value = eval(document.calcForm.calcText.value);
+        } else if (cmd === "C") {
+            document.calcForm.calcText.value = "";
+        } else {
+            document.calcForm.calcText.value += cmd;
+        }
+    }
+</script>
 </body>
 </html>

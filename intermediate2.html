@@ -13,17 +13,21 @@
 
     <script>
         'use-strict';
-        
+        let result;
+        let omikujiNumber;
+
+        // おみくじスタート
         function startOmikuji(){
+            // 結果を空にする
             document.getElementById("omikujiResult").innerHTML = "";
-            window.setTimeout(omikujiCreate,2000);
+            // おみくじ結果を生成
+            omikujiCreate();
+            // 2秒後におみくじ出力
+            window.setTimeout(output,2000);
         }
 
-        // おみくじ結果を生成・出力
+        // おみくじ結果を生成
         function omikujiCreate() {
-            let omikujiNumber;
-            let result;
-
             // 0～4の整数を生成 omikujiIntに代入
             omikujiNumber = Math.floor( Math.random() * 4) ; 
 
@@ -37,8 +41,10 @@
             }else{
                 result = "凶";
             }
+        }
 
-            // 結果を出力
+        // 結果を出力
+        function output(){
             document.getElementById("omikujiResult").innerHTML = result; 
         }
     </script>
